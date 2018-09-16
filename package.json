@@ -1,0 +1,29 @@
+{
+    "name": "teacher-portal",
+    "version": "0.0.1",
+    "description": "A teacher portal Node.js app using express",
+    "main": "app.js",
+    "scripts": {
+        "start": "yarn app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SManali/teacher-portal.git"
+    },
+    "author": {
+        "email": "sutar.manali@gmail.com",
+        "name": "Manali Sutar"
+    },
+    "licenses": [
+        "MIT"
+    ],
+    "keywords": [
+        "node",
+        "express",
+        "teacherPortal"
+    ],
+    "dependencies": {
+        "dotenv": "^6.0.0",
+        "express": "^4.16.3"
+    }
+}
