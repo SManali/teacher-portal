@@ -1,0 +1,5 @@
+# Dependency directories
+node_modules/
+
+#Env to hide secret data
+.env
