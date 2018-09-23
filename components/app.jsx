@@ -109,7 +109,7 @@ class App extends React.Component {
                 "passwordLabel": "Password",
                 "submitButtonText": "Submit",
                 "registerText": "New User sign up here",
-                "forgotOrClaimAccountText":"Forgot PassWord"
+                "forgotOrClaimAccountText":"Forgot Password"
               }}
               performLogin={this.performLogin} />
             } />

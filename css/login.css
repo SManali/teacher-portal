@@ -8,8 +8,9 @@
   padding-bottom: 10px;
 }
 .dashboard-main-holder .account-board {
-  border: 1px solid #636363;
+  border: 1px solid hsl(0, 0%, 39%);
   background-color: #eee;
+  padding-bottom: 1em;
 }
 .dashboard-main-holder .account-board .account-header {
   font-size: 1.4rem;

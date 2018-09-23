@@ -3506,7 +3506,7 @@ var App = function (_React$Component) {
                     "passwordLabel": "Password",
                     "submitButtonText": "Submit",
                     "registerText": "New User sign up here",
-                    "forgotOrClaimAccountText": "Forgot PassWord"
+                    "forgotOrClaimAccountText": "Forgot Password"
                   },
                   performLogin: _this3.performLogin });
               } }),
@@ -6094,23 +6094,27 @@ var Login = function (_React$Component) {
                         )
                     ),
                     _react2.default.createElement(
-                        _reactRouterDom.Link,
-                        { to: '/sign-up' },
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: '/sign-up' },
+                            _react2.default.createElement(
+                                'href',
+                                { 'class': 'register text-center common-header-footer-margin' },
+                                text.registerText
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            ' \\ '
+                        ),
                         _react2.default.createElement(
                             'href',
-                            { 'class': 'register text-center common-header-footer-margin' },
-                            text.registerText
+                            { 'class': 'forgot-or-claim-account text-center common-header-footer-margin' },
+                            text.forgotOrClaimAccountText
                         )
-                    ),
-                    _react2.default.createElement(
-                        'span',
-                        null,
-                        ' \\ '
-                    ),
-                    _react2.default.createElement(
-                        'href',
-                        { 'class': 'forgot-or-claim-account text-center common-header-footer-margin' },
-                        text.forgotOrClaimAccountText
                     )
                 )
             );

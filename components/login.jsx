@@ -66,9 +66,11 @@ class Login extends React.Component {
                             <input type="button" class="btn" value={text.submitButtonText} onClick={this.loginUser} />
                         </div>
                     </div>
-                   <Link to="/sign-up"><href class="register text-center common-header-footer-margin">{text.registerText}</href></Link> 
-                   <span> \ </span>
-                   <href class="forgot-or-claim-account text-center common-header-footer-margin">{text.forgotOrClaimAccountText}</href>
+                    <div>
+                        <Link to="/sign-up"><href class="register text-center common-header-footer-margin">{text.registerText}</href></Link>
+                        <span> \ </span>
+                        <href class="forgot-or-claim-account text-center common-header-footer-margin">{text.forgotOrClaimAccountText}</href>
+                    </div>
                 </div>
             </div>
         )
