@@ -1,0 +1,25 @@
+.dashboard {
+  min-width: 350px;
+}
+.dashboard .dashboard-head {
+  border: 1px solid;
+}
+.dashboard .dashboard-head .lead-logo-container {
+  width: 150px;
+  height: 35px;
+  border: 1px solid;
+  margin: 5px;
+  line-height: 2;
+}
+.dashboard .dashboard-head .profile-info-container {
+  float: right;
+  margin: 5px;
+  line-height: 2;
+}
+.dashboard .dashboard-head .profile-info-container .profile-name-info {
+  margin-left: 15px;
+}
+.dashboard .dashboard-body {
+  border: 1px solid #000;
+  border-top: none;
+}

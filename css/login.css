@@ -1,0 +1,33 @@
+.dashboard-main-holder {
+  width: 420px;
+  height: 460px;
+  overflow: unset;
+}
+.dashboard-main-holder .envelope-holder {
+  text-align: center;
+  padding-bottom: 10px;
+}
+.dashboard-main-holder .account-board {
+  border: 1px solid #636363;
+  background-color: #eee;
+}
+.dashboard-main-holder .account-board .account-header {
+  font-size: 1.4rem;
+}
+.dashboard-main-holder .account-board .account-form {
+  width: 70%;
+  margin: auto;
+}
+.dashboard-main-holder .account-board .account-form .submit-button-container .btn {
+  width: 150px;
+  border: 1px solid #636363;
+  padding: 3px 3px;
+}
+.dashboard-main-holder .account-board .forgot-or-claim-account {
+  color: #00f;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.dashboard-main-holder .account-board .common-header-footer-margin {
+  margin: 20px 20px;
+}

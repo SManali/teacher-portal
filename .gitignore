@@ -4,3 +4,6 @@ bower_components/
 
 #Env to hide secret data
 # .env
+
+# Compile file
+dist/
