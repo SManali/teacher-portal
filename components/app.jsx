@@ -32,7 +32,6 @@ class App extends React.Component {
     };
     const self = this;
     request.post('/login/authenticateUser', args).end((err, data) => {
-      console.log(data);
       if (!err) {
         self.setState({
           redirectUrl: "/students"

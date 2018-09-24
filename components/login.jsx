@@ -14,7 +14,6 @@ class Login extends React.Component {
     }
 
     loginUser() {
-        debugger;
         const userId = this.userId.value;
         const password = this.password.value;
         const errorText = this.getErrorText(userId, password);

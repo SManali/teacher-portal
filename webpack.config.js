@@ -5,11 +5,6 @@ const config = {
     path: path.join(__dirname, "./dist/javascripts/"),
     filename: "bundle.js"
   },
-  mode: "development",
-  optimization: {
-    // We no not want to minimize our code.
-    minimize: false
-  },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
