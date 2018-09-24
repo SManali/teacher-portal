@@ -3,7 +3,7 @@ This project is to develop teacher portal login page, and to add student, also p
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -12,9 +12,9 @@ These instructions will get you a copy of the project up and running on your loc
 * [MongoDB](https://docs.mongodb.com/manual/installation/) - It  is a document database with the scalability and flexibility
 
 ### Technology used
-* [ExpressJs] (https://expressjs.com/) - Express provides a thin layer of fundamental web application features, without obscuring Node.js features 
-* [ReactJs] (https://reactjs.org/) - React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
-* [MongoDB] (https://docs.mongodb.com/?_ga=2.126075597.1585026493.1537697158-469704523.1537517441) - It is a document database
+* [ExpressJs](https://expressjs.com/) - Express provides a thin layer of fundamental web application features, without obscuring Node.js features 
+* [ReactJs](https://reactjs.org/) - React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+* [MongoDB](https://docs.mongodb.com/?_ga=2.126075597.1585026493.1537697158-469704523.1537517441) - It is a document database
 
 ### Installing
 
