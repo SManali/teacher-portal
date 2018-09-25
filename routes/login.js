@@ -1,9 +1,9 @@
 const express = require('express');
 const loginSchema = require('../models/user-credentials');
 const {
-    isAuthenticate,
+    authenticateUser,
     addUser
-} = require('../controller/login');
+} = require('./login');
 
 const router = express.Router();
 
@@ -19,7 +19,7 @@ router.post('/createUser', (req, res) => {
 
 router.post('/authenticateUser', (req, res) => {
     const data = req.body.data;
-    isAuthenticate(data.userId, data.password).then((data) => {
+    authenticateUser(data.userId, data.password).then((data) => {
         res.status(200).json(data);
     }, (err) => {
         res.status(403).json(err.message);

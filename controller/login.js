@@ -1,13 +1,12 @@
 const credentials = require('../models/user-credentials');
+const { createToken } = require('./controller/token')
 
 const checkIfExist = (userId) => {
     return new Promise((resolve, reject) => {
-        console.log(userId.toLowerCase());
         const query = {
             userId: userId.toLowerCase()
         }
         credentials.find(query, (err, doc) => {
-            console.log(doc);
             if (err) {
                 reject(new Error('Error while quering database'));
             } else if (doc.length > 0) {
@@ -40,7 +39,7 @@ const addUser = (userId, password) => {
     });
 }
 
-const isAuthenticate = (userId, password) => {
+const authenticateUser = (userId, password) => {
     return new Promise((resolve, reject) => {
         const data = {
             userId: userId.toLowerCase(),
@@ -50,7 +49,11 @@ const isAuthenticate = (userId, password) => {
             if (err || doc.length === 0) {
                 reject(new Error("User is not authenticate"));
             } else {
-                resolve("User is Authenticate");
+                createToken(userId).then((token) => {
+                    resolve(token);
+                }, err => {
+                    reject(new Error("Error in creating authentication token"))
+                });
             }
         });
     });
@@ -58,5 +61,5 @@ const isAuthenticate = (userId, password) => {
 
 module.exports = {
     addUser,
-    isAuthenticate
+    authenticateUser
 };

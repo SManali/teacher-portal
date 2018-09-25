@@ -15,7 +15,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       authenticationToken: "",
-      redirectUrl: ""
+      redirectUrl: "",
+      errorText: "",
+      accessToken: ""
     }
     this.performLogin = this.performLogin.bind(this);
     this.performSignIn = this.performSignIn.bind(this);
@@ -30,17 +32,20 @@ class App extends React.Component {
         'Content-Type': 'application/json',
       }
     };
-    const self = this;
     request.post('/login/authenticateUser', args).end((err, data) => {
-      if (!err) {
-        self.setState({
+      if (err) {
+        console.log(err);
+        this.setState({
+          redirectUrl: "",
+          errorText: "Invalid User name or password"
+        });
+        console.error(err.message);
+      } else {
+        console.log("login Page");
+        console.log(data);
+        this.setState({
           redirectUrl: "/students"
         });
-      } else {
-        self.setState({
-          redirectUrl: ""
-        });
-        console.error(data.body.message);
       }
     });
   }
@@ -56,16 +61,13 @@ class App extends React.Component {
       }
     };
     request.post('/login/createUser', args).end((err, data) => {
-      console.log(data);
       if (!err) {
-        this.setState({
-          redirectUrl: "/students"
-        });
+        this.performLogin(userId, password);
       } else {
         this.setState({
           redirectUrl: ""
         });
-        console.error(data.body.message);
+        console.error(err.message);
       }
     });
   }
@@ -96,10 +98,11 @@ class App extends React.Component {
                 "userIDLabel": "Email ID / Phone Number",
                 "newAccountHeaderText": "Create a new Account",
                 "passwordLabel": "Password",
-                "submitButtonText": "Submit"
+                "submitButtonText": "Submit",
+                "alreadyUserText": "Already user? Login here"
               }
             }
-            performSignIn= {this.performSignIn} />
+              performSignIn={this.performSignIn}/>
             } />
             <Route path="/login" exact component={() => <Login isAuthed={true} localizedText={
               {
@@ -107,12 +110,12 @@ class App extends React.Component {
                 "loginAccountHeaderText": "Login to your account",
                 "passwordLabel": "Password",
                 "submitButtonText": "Submit",
-                "registerText": "New User sign up here",
-                "forgotOrClaimAccountText":"Forgot Password"
+                "registerText": "New User? Sign up here",
+                "forgotOrClaimAccountText": "Forgot Password"
               }}
-              performLogin={this.performLogin} />
+              performLogin={this.performLogin}/>
             } />
-            <Route path="/students" exact component = {()=> <StudentList/>} />
+            <Route path="/students" exact component={() => <StudentList />} />
             {redirect()}
           </div>
         </Router>

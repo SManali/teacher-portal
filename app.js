@@ -11,7 +11,7 @@ const routes = require('./routes/index');
 const loginRoutes = require('./routes/login');
 const studentsRoutes = require('./routes/students');
 
-mongoose.connect(`mongodb://${process.env.DB_SERVER}/${process.env.DB_NAME}`, { useNewUrlParser: true })
+
 
 const app = express();
 
@@ -27,6 +27,8 @@ app.use(cookieParser());
 //Routers path
 app.use('/vendor', express.static(path.join(__dirname, 'bower_components')));
 app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/login', loginRoutes);
@@ -35,38 +37,50 @@ app.use('*', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  });
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 //   cache.start((merr) => {
 //     if (merr) {
 //       app.close();
 //       throw merr;
 //     }
 //   });
-  // error handlers
-  
-  // development error handler
-  // will print stacktrace
-  if (app.get('env') === 'development') {
-    app.use((err, req, res) => {
-      res.status(err.status || 500);
-      res.render('error', {
-        message: err.message,
-        error: err,
-      });
-    });
-  }
-  
-  // production error handler
-  // no stacktraces leaked to user
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
   app.use((err, req, res) => {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: {},
+      error: err,
     });
   });
-  
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use((err, req, res) => {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {},
+  });
+});
+
+mongoose.connect(`mongodb://${process.env.DB_SERVER}/${process.env.DB_NAME}`, { useNewUrlParser: true });
+
+// Exit application on error
+mongoose.connection.on('error', err => {
+  console.log(`MongoDB connection error: ${err}`);
+  process.exit(-1)
+})
+
+
+mongoose.connection.on('connected', () => {
+  console.log('MongoDB is connected')
+})
 module.exports = app;
